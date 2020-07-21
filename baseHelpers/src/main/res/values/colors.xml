@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mariner_dark">#4C619D</color>
+    <color name="mariner">#5C77BA</color>
+    <color name="ocean_dark">#0086C9</color>
+    <color name="ocean">#00A5DB</color>
+    <color name="ocean_light">#00C0E8</color>
+    <color name="ocean_crystal">#BFE8F6</color>
+
+    <color name="tangerine_dark">#FA8409</color>
+    <color name="tangerine">#FCA311</color>
+    <color name="tangerine_light">#FCBE18</color>
+    <color name="tangerine_crystal">#FEE8C3</color>
+
+    <color name="mercury_dark">#5A6065</color>
+    <color name="mercury">#7A8085</color>
+    <color name="mercury_light">#989FA3</color>
+    <color name="mercury_crystal">#DDDFE0</color>
+    <color name="mercury_80">#2d3033</color>
+    <color name="mercury_70">#44494D</color>
+    <color name="mercury_50">#757B80</color>
+    <color name="mercury_30">#A6AEB3</color>
+    <color name="mercury_10">#E2E4E6</color>
+
+    <color name="bamboo_dark">#42AD3C</color>
+    <color name="bamboo">#60C659</color>
+    <color name="bamboo_light">#7EDA76</color>
+    <color name="bamboo_crystal">#9DEB95</color>
+
+    <color name="sunflower_dark">#FFAD11</color>
+    <color name="sunflower">#FFC61E</color>
+    <color name="sunflower_light">#FFDA2B</color>
+    <color name="sunflower_crystal">#FFF0C6</color>
+
+    <color name="ruby_dark">#E62627</color>
+    <color name="ruby">#EF3C3E</color>
+    <color name="ruby_light">#F55356</color>
+    <color name="ruby_crystal">#FBCECE</color>
+
+    <color name="supernova_dark">#8D4D9C</color>
+    <color name="supernova">#AC6CB8</color>
+    <color name="supernova_light">#C68ACF</color>
+    <color name="supernova_crystal">#EADAED</color>
+
+    <color name="mint_dark">#26A886</color>
+    <color name="mint">#3CC2A5</color>
+    <color name="mint_light">#53D7C0</color>
+    <color name="mint_crystal">#CEEFE8</color>
+
+    <color name="oil_dark">#1B1B1B</color>
+    <color name="oil">#2D2D2D</color>
+    <color name="oil_light">#404040</color>
+    <color name="oil_crystal">#CACACA</color>
+
+    <color name="desert_storm">#F8F8F8</color>
+    <color name="iron">#D4D7D9</color>
+    <color name="santas_gray">#9DA6AD</color>
+    <color name="bunker">#2D2D2D</color>
+
+    <color name="white">#FFF</color>
+    <color name="off_white">#FAFAFA</color>
+    <color name="white_overlay">#80FFFFFF</color>
+    <color name="white_07">#11FFFFFF</color>
+    <color name="white_10">#1AFFFFFF</color>
+    <color name="white_20">#33FFFFFF</color>
+    <color name="white_30">#4dFFFFFF</color>
+    <color name="white_50">#7FFFFFFF</color>
+    <color name="white_73">#BBFFFFFF</color>
+
+    <color name="black">#000</color>
+    <color name="black_overlay">#80000000</color>
+    <color name="black_20">#33000000</color>
+    <color name="black_27">#44000000</color>
+    <color name="black_40">#66000000</color>
+    <color name="black_60">#99000000</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="tax_color">#B9BFC4</color>
+    <color name="selected_tax_color">#D2EEFA</color>
+</resources>

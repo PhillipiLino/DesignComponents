@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- RADIUS -->
+    <dimen name="radius_small">2dp</dimen>
+    <dimen name="radius_normal">4dp</dimen>
+    <dimen name="radius_card">5dp</dimen>
+    <dimen name="radius_large">8dp</dimen>
+    <dimen name="radius_big">10dp</dimen>
+    <dimen name="radius_enormous">16dp</dimen>
+    <dimen name="radius_giant">20dp</dimen>
+
+    <!-- ELEVATION -->
+    <dimen name="elevation_normal">4dp</dimen>
+
+    <!-- BUTTONS -->
+    <dimen name="btn_small_height">30dp</dimen>
+    <dimen name="btn_round_size">64dp</dimen>
+    <dimen name="btn_round_radius">32dp</dimen>
+    <dimen name="btn_big_height">48dp</dimen>
+    <dimen name="btn_big_width">160dp</dimen>
+    <dimen name="btn_normal_height">40dp</dimen>
+    <dimen name="btn_normal_width">168dp</dimen>
+    <dimen name="btn_normal_radius">20pt</dimen>
+    <dimen name="btn_small_size">20dp</dimen>
+
+    <!-- FONTS -->
+    <dimen name="font_h1">36sp</dimen>
+    <dimen name="font_h2">28sp</dimen>
+    <dimen name="font_h3">20sp</dimen>
+    <dimen name="font_h4">18sp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_small">14sp</dimen>
+    <dimen name="font_very_small">12sp</dimen>
+
+    <!-- BELCHIOR FONTS-->
+    <dimen name="font_header_1">32sp</dimen>
+    <dimen name="font_header_2">28sp</dimen>
+    <dimen name="font_header_3">24sp</dimen>
+    <dimen name="font_title_1">21sp</dimen>
+    <dimen name="font_title_2">18sp</dimen>
+    <dimen name="font_body_1">16sp</dimen>
+    <dimen name="font_body_2">14sp</dimen>
+    <dimen name="font_caption">12sp</dimen>
+
+    <!-- SPACING -->
+    <dimen name="spacing_x0">0dp</dimen>
+    <dimen name="spacing_x0_25">1dp</dimen>
+    <dimen name="spacing_x0_5">2dp</dimen>
+    <dimen name="spacing_x1">4dp</dimen>
+    <dimen name="spacing_x1_3">5dp</dimen>
+    <dimen name="spacing_x1_5">6dp</dimen>
+    <dimen name="spacing_x2">8dp</dimen>
+    <dimen name="spacing_x2_3">9dp</dimen>
+    <dimen name="spacing_x2_5">10dp</dimen>
+    <dimen name="spacing_x3">12dp</dimen>
+    <dimen name="spacing_x3_5">14dp</dimen>
+    <dimen name="spacing_x3_8">15dp</dimen>
+    <dimen name="spacing_x4">16dp</dimen>
+    <dimen name="spacing_x4_5">18dp</dimen>
+    <dimen name="spacing_x5">20dp</dimen>
+    <dimen name="spacing_x6">24dp</dimen>
+    <dimen name="spacing_x6_5">26dp</dimen>
+    <dimen name="spacing_x7">28dp</dimen>
+    <dimen name="spacing_x7_5">30dp</dimen>
+    <dimen name="spacing_x8">32dp</dimen>
+    <dimen name="spacing_x8_5">34dp</dimen>
+    <dimen name="spacing_x9">36dp</dimen>
+    <dimen name="spacing_x10">40dp</dimen>
+    <dimen name="spacing_x11">44dp</dimen>
+    <dimen name="spacing_x12">48dp</dimen>
+    <dimen name="spacing_x13">52dp</dimen>
+    <dimen name="spacing_x14">56dp</dimen>
+    <dimen name="spacing_x15">60dp</dimen>
+    <dimen name="spacing_x16">64dp</dimen>
+    <dimen name="spacing_x17">68dp</dimen>
+    <dimen name="spacing_x22">88dp</dimen>
+    <dimen name="spacing_x23">92dp</dimen>
+    <dimen name="spacing_x26">104dp</dimen>
+    <dimen name="spacing_x27">108dp</dimen>
+    <dimen name="spacing_x42">168dp</dimen>
+
+    <!-- DEFAULT HEIGHTS -->
+    <dimen name="height_text_view_small">16dp</dimen>
+    <dimen name="height_text_view_normal">20dp</dimen>
+    <dimen name="height_text_view_medium">24dp</dimen>
+    <dimen name="height_text_view">28dp</dimen>
+    <dimen name="height_tab">40dp</dimen>
+    <dimen name="height_edit_text">50dp</dimen>
+    <dimen name="height_switch">50dp</dimen>
+    <dimen name="height_footer">60dp</dimen>
+    <dimen name="height_custom_edit_text">40dp</dimen>
+    <dimen name="height_row">40dp</dimen>
+
+    <!-- ICONS -->
+    <dimen name="ic_normal">20dp</dimen>
+
+    <!-- EVENT SESSION BUTTON -->
+    <dimen name="height_text_event_session">24dp</dimen>
+    <dimen name="width_text_event_session">92dp</dimen>
+    <dimen name="height_text_event_session_passport">32dp</dimen>
+    <dimen name="width_text_event_session_passport">148dp</dimen>
+
+    <!-- SESSION DATE -->
+    <dimen name="height_text_week_day">40dp</dimen>
+    <dimen name="width_text_week_day">48dp</dimen>
+    <dimen name="height_text_datetime">32dp</dimen>
+    <dimen name="width_text_datetime">104dp</dimen>
+
+    <!-- UNIT CONTROLLER -->
+    <dimen name="height_btn_controller">24dp</dimen>
+    <dimen name="width_btn_controller">36dp</dimen>
+
+    <!-- TICKET INFO -->
+    <dimen name="height_ticket_info_icon">24dp</dimen>
+    <dimen name="width_ticket_info_icon">24dp</dimen>
+</resources>

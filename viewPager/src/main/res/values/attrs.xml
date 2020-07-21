@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LoopViewPager">
+        <attr name="android:padding" />
+        <attr name="android:paddingStart" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingEnd" />
+        <attr name="android:paddingBottom" />
+        <attr name="android:clipToPadding" />
+        <attr name="android:clipChildren" />
+        <attr name="infinityPager" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ReceiptViewPager">
+        <attr name="infinityPager" />
+    </declare-styleable>
+</resources>
