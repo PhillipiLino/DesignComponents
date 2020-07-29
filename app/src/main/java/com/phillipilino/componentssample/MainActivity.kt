@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
 
         loop_view_pager.loadItems(items) { item, position ->
             Toast.makeText(this, "$position: ${item.name}", Toast.LENGTH_SHORT).show()
+            indicator_view.setSelectedItem(position)
         }
     }
 

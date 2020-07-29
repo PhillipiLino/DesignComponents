@@ -9,6 +9,14 @@
         <attr name="android:clipToPadding" />
         <attr name="android:clipChildren" />
         <attr name="infinityPager" format="boolean" />
+        <attr name="showIndicators" format="boolean" />
+        <attr name="selectedIndicatorColor" format="color" />
+        <attr name="unselectedIndicatorColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="IndicatorView">
+        <attr name="selectedItemColor" format="color" />
+        <attr name="unselectedItemColor" format="color" />
     </declare-styleable>
 
     <declare-styleable name="ReceiptViewPager">

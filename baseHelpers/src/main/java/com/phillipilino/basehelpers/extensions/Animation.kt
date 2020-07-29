@@ -8,6 +8,7 @@ import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.view.animation.AlphaAnimation
 import android.view.animation.Animation
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.AnimatorRes
 import androidx.annotation.ColorRes
@@ -24,6 +25,15 @@ fun TextView.animateColor(@ColorRes newColor: Int,
     val color = ResourcesHelper(context).getColorHelper(newColor)
     val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), this.textColors.defaultColor, color)
     colorAnimation.addUpdateListener { animator -> this.setTextColor(animator.animatedValue as Int) }
+    colorAnimation.duration = duration
+    colorAnimation.start()
+}
+
+fun ImageView.animateColor(fromColor: Int,
+                           newColor: Int,
+                           duration: Long = 100) {
+    val colorAnimation = ValueAnimator.ofObject(ArgbEvaluator(), fromColor, newColor)
+    colorAnimation.addUpdateListener { animator -> this.setColorFilter(animator.animatedValue as Int) }
     colorAnimation.duration = duration
     colorAnimation.start()
 }

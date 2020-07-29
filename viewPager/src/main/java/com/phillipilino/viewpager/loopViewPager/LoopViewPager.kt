@@ -3,17 +3,22 @@ package com.phillipilino.viewpager.loopViewPager
 import android.content.Context
 import android.os.Handler
 import android.util.AttributeSet
+import android.view.View
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
-import android.widget.LinearLayout
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.annotation.LayoutRes
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.constraintlayout.widget.ConstraintSet
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_DRAGGING
 import androidx.viewpager2.widget.ViewPager2.SCROLL_STATE_IDLE
 import com.phillipilino.basehelpers.adapters.BaseAdapter
+import com.phillipilino.basehelpers.setVisible
 import com.phillipilino.viewpager.R
 import com.phillipilino.viewpager.extensions.setCurrentItem
+import com.phillipilino.viewpager.indicatorView.IndicatorView
+
 
 /**
  * Implementation of Loop View Pager
@@ -30,6 +35,7 @@ class LoopViewPager(context: Context, attrs: AttributeSet): ConstraintLayout(con
         @LayoutRes val VIEW_HOLDER_LAYOUT = R.layout.item_loop_view_pager
     }
 
+    var indicatorView: IndicatorView? = null
     var items: List<LoopViewPagerItem> = listOf()
     var currentItem: LoopViewPagerItem? = null
     var currentPosition = 0
@@ -69,6 +75,9 @@ class LoopViewPager(context: Context, attrs: AttributeSet): ConstraintLayout(con
         val attrPaddingBottom = array.getDimensionPixelSize(R.styleable.LoopViewPager_android_paddingBottom, attrPadding)
         val attrClipToPadding = array.getBoolean(R.styleable.LoopViewPager_android_clipToPadding, true)
         val attrClipChildren = array.getBoolean(R.styleable.LoopViewPager_android_clipChildren, true)
+        val showIndicator = array.getBoolean(R.styleable.LoopViewPager_showIndicators, true)
+        val selectedIdicatorColor = array.getColor(R.styleable.LoopViewPager_selectedIndicatorColor, context.resources.getColor(R.color.santas_gray))
+        val unselectedIdicatorColor = array.getColor(R.styleable.LoopViewPager_unselectedIndicatorColor, context.resources.getColor(R.color.santas_gray))
         infinityPager = array.getBoolean(R.styleable.LoopViewPager_infinityPager, true)
 
         clipToPadding = true
@@ -78,13 +87,35 @@ class LoopViewPager(context: Context, attrs: AttributeSet): ConstraintLayout(con
         viewPager?.setPadding(attrPaddingStart, attrPaddingTop, attrPaddingEnd, attrPaddingBottom)
 
         viewPager = ViewPager2(context, attrs)
-        viewPager?.layoutParams = LinearLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT)
+        viewPager?.layoutParams = LayoutParams(MATCH_PARENT, 0)
+        viewPager?.id = View.generateViewId()
 
         adapter = LoopViewPagerAdapter(context)
         viewPager?.adapter = adapter
         viewPager?.offscreenPageLimit = 1
         addView(viewPager)
         setOnPageChangeCallback()
+
+        indicatorView = IndicatorView(context, attrs)
+        indicatorView?.layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
+        indicatorView?.insertItems(10)
+        indicatorView?.id = View.generateViewId()
+        indicatorView?.setColors(selectedIdicatorColor, unselectedIdicatorColor)
+
+        addView(indicatorView)
+
+        val constraintSet = ConstraintSet()
+        constraintSet.clone(this)
+        constraintSet.connect(indicatorView!!.id, ConstraintSet.BOTTOM, this.id, ConstraintSet.BOTTOM, 0)
+        constraintSet.connect(indicatorView!!.id, ConstraintSet.RIGHT, this.id, ConstraintSet.RIGHT, 0)
+        constraintSet.connect(indicatorView!!.id, ConstraintSet.LEFT, this.id, ConstraintSet.LEFT, 0)
+        constraintSet.connect(viewPager!!.id, ConstraintSet.TOP, this.id, ConstraintSet.TOP, 0)
+        constraintSet.connect(viewPager!!.id, ConstraintSet.RIGHT, this.id, ConstraintSet.RIGHT, 0)
+        constraintSet.connect(viewPager!!.id, ConstraintSet.LEFT, this.id, ConstraintSet.LEFT, 0)
+        constraintSet.connect(viewPager!!.id, ConstraintSet.BOTTOM, indicatorView!!.id, ConstraintSet.TOP, 0)
+        constraintSet.applyTo(this)
+
+        indicatorView?.setVisible(showIndicator)
         array.recycle()
     }
 
@@ -94,9 +125,13 @@ class LoopViewPager(context: Context, attrs: AttributeSet): ConstraintLayout(con
      * @param position - current viewPager position
      */
     private fun checkPosition(position: Int) {
-        if (position == currentPosition) return
+        if (items.isEmpty()) return
+        val realPosition = position % items.size
+        val item = items[realPosition]
+        if (item == currentItem) return
+        indicatorView?.setSelectedItem(realPosition)
         currentPosition = position
-        currentItem = items[currentPosition % items.size]
+        currentItem = item
     }
 
     /**
@@ -144,11 +179,14 @@ class LoopViewPager(context: Context, attrs: AttributeSet): ConstraintLayout(con
 
         this.items = items
         currentItem = items.firstOrNull()
+        indicatorView?.insertItems(items.size)
+        indicatorView?.setSelectedItem(0)
 
         var itemsToAdapter = items
         if (infinityPager) {
             infinityItems = items.toMutableList()
             infinityItems.addAll(infinityItems)
+            if (items.size < 3) infinityItems.addAll(infinityItems)
             itemsToAdapter = infinityItems
         }
 
