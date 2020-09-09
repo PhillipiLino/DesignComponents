@@ -1,6 +1,7 @@
 package com.phillipilino.viewpager.indicatorView
 
 import android.content.Context
+import android.content.res.Resources
 import android.util.AttributeSet
 import android.view.Gravity.CENTER
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
@@ -16,17 +17,24 @@ import com.phillipilino.viewpager.R
 class IndicatorView(context: Context, attrs: AttributeSet): LinearLayout(context, attrs) {
 
     companion object {
-        @DrawableRes val  ITEM_DRAWABLE: Int = R.drawable.indicator_loop_view_pager
+        @DrawableRes val OVAL_INDICATOR: Int = R.drawable.indicator_loop_view_pager
+        @DrawableRes val FLAT_INDICATOR: Int = R.drawable.flat_indicator_loop_view_pager
     }
 
     private var selectedItem: Int? = null
     private var selectedItemColor: Int
     private var unselectedItemColor: Int
+    private var animate: Boolean = true
+    private var screenWidth: Boolean = true
+    @DrawableRes var indicatorDrawable: Int = R.drawable.indicator_loop_view_pager
 
     init {
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.IndicatorView, 0, 0)
         selectedItemColor = array.getColor(R.styleable.IndicatorView_selectedItemColor, context.resources.getColor(R.color.santas_gray))
         unselectedItemColor = array.getColor(R.styleable.IndicatorView_unselectedItemColor, context.resources.getColor(R.color.santas_gray))
+        animate = array.getBoolean(R.styleable.IndicatorView_animateItem, true)
+        screenWidth = array.getBoolean(R.styleable.IndicatorView_screenWidth, false)
+        indicatorDrawable = if (screenWidth) FLAT_INDICATOR else OVAL_INDICATOR
 
         orientation = HORIZONTAL
         gravity = CENTER
@@ -38,20 +46,23 @@ class IndicatorView(context: Context, attrs: AttributeSet): LinearLayout(context
 
     fun insertItems(quantity: Int) {
         removeAllViews()
+        val itemWidth = if (screenWidth) (Resources.getSystem().displayMetrics.widthPixels/quantity) - 47
+        else WRAP_CONTENT
+
         for (index in 1..quantity) {
             val item = ImageView(context)
-            item.layoutParams = LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
-            item.setImageDrawable(context.resources.getDrawable(ITEM_DRAWABLE))
+            item.layoutParams = LayoutParams(itemWidth, WRAP_CONTENT)
+            item.setImageDrawable(context.resources.getDrawable(indicatorDrawable))
             item.setColorFilter(unselectedItemColor)
             addView(item)
         }
     }
 
     fun setSelectedItem(position: Int) {
-        animateItem(position)
+        if (animate) animateItem(position)
         changeItemColor(position)
         selectedItem?.let {
-            animateItem(it, false)
+            if (animate) animateItem(it, false)
             changeItemColor(it, false)
         }
         selectedItem = position

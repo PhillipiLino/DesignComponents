@@ -17,6 +17,8 @@
     <declare-styleable name="IndicatorView">
         <attr name="selectedItemColor" format="color" />
         <attr name="unselectedItemColor" format="color" />
+        <attr name="animateItem" format="boolean" />
+        <attr name="screenWidth" format="boolean" />
     </declare-styleable>
 
     <declare-styleable name="ReceiptViewPager">
