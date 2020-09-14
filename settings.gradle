@@ -1,3 +1,4 @@
+include ':photoEditor'
 include ':viewPager'
 include ':baseHelpers'
 include ':designComponents'
