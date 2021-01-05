@@ -19,6 +19,8 @@
         <attr name="unselectedItemColor" format="color" />
         <attr name="animateItem" format="boolean" />
         <attr name="screenWidth" format="boolean" />
+        <attr name="itemMargin" format="dimension" />
+        <attr name="itemSize" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="ReceiptViewPager">

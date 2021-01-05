@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NotificationView">
+        <attr name="message" format="string" />
+        <attr name="showOnStart" format="boolean" />
+        <attr name="type" format="enum" >
+            <enum name="error" value="0" />
+            <enum name="attention" value="1" />
+            <enum name="success" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CounterInfoView">
+        <attr name="title" format="string" />
+        <attr name="count" format="integer" />
+    </declare-styleable>
+</resources>

@@ -24,4 +24,13 @@
         android:visibility="gone"
         app:layout_constraintTop_toBottomOf="@id/loop_view_pager"/>
 
+    <com.phillipilino.basicviews.NotificationView
+        android:id="@+id/notification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/indicator_view"
+        android:layout_margin="@dimen/spacing_x3"
+        app:message="teste da notificacásafhjfgsdhjfgsdhjfgsdhjfgsdhjgfsfgsjhdgfjsdfgsjdhfgsdjhfgsdjhfgsdjsdfgsdjfhgsdf"
+        app:type="error" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
