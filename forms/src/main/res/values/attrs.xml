@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="title" format="string" />
+    <attr name="positiveAnswer" format="string" />
+    <attr name="negativeAnswer" format="string" />
+
+    <declare-styleable name="QuestionSwitch">
+        <attr name="title" />
+        <attr name="positiveAnswer" />
+        <attr name="negativeAnswer" />
+    </declare-styleable>
+
+    <declare-styleable name="CounterField">
+        <attr name="title" />
+        <attr name="plusButtonText" format="string" />
+        <attr name="minusButtonText" format="string" />
+    </declare-styleable>
+</resources>
