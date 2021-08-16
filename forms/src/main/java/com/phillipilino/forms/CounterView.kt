@@ -8,18 +8,26 @@ import android.os.Vibrator
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.widget.LinearLayout
-import kotlinx.android.synthetic.main.counter_field.view.*
+import com.phillipilino.basehelpers.setVisible
+import kotlinx.android.synthetic.main.counter_view.view.*
 
-class CounterField(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
+class CounterView(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
     var value: Int
         get() = edt_value.text.toString().toInt()
         set(value) = edt_value.setText(value.toString())
+
+    var title: String
+        get() = lbl_title.text.toString()
+        set(value) { lbl_title.text = value }
+
+    var showTitle: Boolean = false
+        set(value) = lbl_title.setVisible(value)
 
     var maxValue: Int = Int.MAX_VALUE
     var minValue: Int = 0
 
     init {
-        inflate(context, R.layout.counter_field, this)
+        inflate(context, R.layout.counter_view, this)
         val array = context.theme.obtainStyledAttributes(attrs, R.styleable.CounterField, 0, 0)
         val title = array.getString(R.styleable.CounterField_title).orEmpty()
         val minusText = array.getString(R.styleable.CounterField_minusButtonText) ?: "-"
@@ -99,7 +107,7 @@ class CounterField(context: Context, attrs: AttributeSet) : LinearLayout(context
     fun setProperties(title: String,
                       minusButtonText: String,
                       plusButtonText: String) {
-//        edt_value.text = title
+        this.title = title
         btn_minus.text = minusButtonText
         btn_plus.text = plusButtonText
     }

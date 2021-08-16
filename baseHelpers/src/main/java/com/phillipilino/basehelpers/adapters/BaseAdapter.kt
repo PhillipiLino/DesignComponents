@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 abstract class BaseAdapter<T>: RecyclerView.Adapter<BaseVH<T>>() {
     var items: List<T> = listOf()
-    var onItemPressed: ((T, Int) -> Unit)? = null
+    var onItemPressed: ((View, T, Int) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseVH<T> =
         getViewHolder(LayoutInflater.from(parent.context).inflate(viewType, parent, false),
@@ -25,7 +25,7 @@ abstract class BaseAdapter<T>: RecyclerView.Adapter<BaseVH<T>>() {
 
     abstract fun getViewHolder(view: View, viewType: Int): BaseVH<T>
 
-    fun loadItems(items: List<T>, onItemPressed: ((T, Int) -> Unit)?) {
+    fun loadItems(items: List<T>, onItemPressed: ((View, T, Int) -> Unit)?) {
         this.items = items
         this.onItemPressed = onItemPressed
         notifyDataSetChanged()

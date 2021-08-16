@@ -26,7 +26,7 @@ open class LoopViewPagerVH(val context: Context, view: View): BaseVH<LoopViewPag
     override fun bind(
         item: LoopViewPagerItem,
         position: Int,
-        onItemPressed: ((LoopViewPagerItem, Int) -> Unit)?) {
+        onItemPressed: ((View, LoopViewPagerItem, Int) -> Unit)?) {
         super.bind(item, position, onItemPressed)
         if (item.imageResId != null) {
             itemImageView.setImageResource(item.imageResId)

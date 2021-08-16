@@ -106,12 +106,15 @@ fun animateGradient(gradientBackground: GradientDrawable,
     animator.start()
 }
 
-fun View.hide(duration: Long = 300) {
+fun View.hide(duration: Long = 300, completion: (() -> Unit)? = null) {
     if (!isVisible) return
     this.animation?.cancel()
     val animation = AlphaAnimation(alpha, 0.0f)
     animation.duration = duration
-    animation.setListeners(doOnEnd = { setVisible(false) })
+    animation.setListeners(doOnEnd = {
+        setVisible(false)
+        completion?.invoke()
+    })
     clearAnimation()
     startAnimation(animation)
 }

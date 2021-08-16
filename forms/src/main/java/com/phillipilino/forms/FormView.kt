@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
 import androidx.core.view.children
+import androidx.core.widget.addTextChangedListener
+import com.phillipilino.basehelpers.listen
 import org.json.JSONObject
 
 class FormView(context: Context, private val attrs: AttributeSet): LinearLayout(context, attrs) {
@@ -27,6 +29,8 @@ class FormView(context: Context, private val attrs: AttributeSet): LinearLayout(
         (field as? FormTextField)?.let { setupTextField(it, fieldObject as? EditText) }
 
         (field as? FormSwitchField)?.let { setupSwitchField(it, fieldObject as? QuestionSwitch) }
+
+        (field as? FormCounterField)?.let { setupCounterField(it, fieldObject as? CounterView) }
     }
 
     private fun setupTextField(field: FormTextField, editText: EditText?) {
@@ -34,6 +38,7 @@ class FormView(context: Context, private val attrs: AttributeSet): LinearLayout(
         editText?.textSize = field.textSize
         editText?.inputType = field.inputType
         editText?.setText(field.initText)
+        editText?.listen { text ->   field.onTextChange?.invoke(text) }
         addView(editText)
     }
 
@@ -41,6 +46,15 @@ class FormView(context: Context, private val attrs: AttributeSet): LinearLayout(
         switch?.setQuestion(title = field.title, negativeAnswer = field.negativeText, positiveAnswer = field.positiveText)
         switch?.switch?.isChecked = field.initialValue
         addView(switch)
+    }
+
+    private fun setupCounterField(field: FormCounterField, counter: CounterView?) {
+        counter?.showTitle = true
+        counter?.title = field.title
+        counter?.value = field.value
+        counter?.maxValue = field.maxValue
+        counter?.minValue = field.minValue
+        addView(counter)
     }
 
     override fun toString() = getFormInfo().toString()
@@ -53,6 +67,7 @@ class FormView(context: Context, private val attrs: AttributeSet): LinearLayout(
 
             (child as? EditText)?.let { result[key] = it.text?.toString().orEmpty() }
             (child as? QuestionSwitch)?.let { result[key] = it.result }
+            (child as? CounterView)?.let { result[key] = it.value }
 
             result
         }.toMap()

@@ -73,6 +73,7 @@ class IndicatorView(context: Context, attrs: AttributeSet): LinearLayout(context
     }
 
     fun setSelectedItem(position: Int) {
+        if (position == selectedItem) return
         if (animate) animateItem(position)
         changeItemColor(position)
         selectedItem?.let {

@@ -190,7 +190,7 @@ class LoopViewPager(context: Context, attrs: AttributeSet): ConstraintLayout(con
             itemsToAdapter = infinityItems
         }
 
-        adapter.loadItems(itemsToAdapter) { item, position ->
+        adapter.loadItems(itemsToAdapter) { _, item, position ->
             onItemPressed?.invoke(item, (position % items.size))
         }
     }

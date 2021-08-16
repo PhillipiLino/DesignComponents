@@ -8,6 +8,7 @@ data class FormTextField(
     val textSize: Float,
     val initText: String = "",
     val inputType: Int = InputType.TYPE_CLASS_TEXT,
+    val onTextChange: ((String) -> Unit)?,
     override val objectClass: Class<out EditText> = EditText::class.java,
     override val id: String,
     override val title: String,

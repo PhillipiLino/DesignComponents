@@ -5,6 +5,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/lbl_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_x2"
+        android:text="Número de páginas lidas"
+        android:layout_marginBottom="@dimen/spacing_x4"
+        android:visibility="gone"/>
+
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/edt_value"
         android:layout_width="match_parent"
